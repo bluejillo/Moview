@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const moviesRoute = require('./routes/movies');
 const moviesSearchRoute = require('./routes/searchMovies');
 const movieDetailsRoute = require('./routes/movieDetails');
+const movieGenreRoute = require('./routes/movieGenre');
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(bodyParser.json());
 app.use(moviesRoute);
 app.use(moviesSearchRoute);
 app.use(movieDetailsRoute);
+app.use(movieGenreRoute);
 
 // --- Server ---
 const PORT = 3000;
