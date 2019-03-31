@@ -1,0 +1,26 @@
+.movie-details {
+	&__poster {
+		height: auto;
+		width:100%;
+		max-width: 360px;
+	}
+	&__info {
+		color: #A8A7A8;
+		padding-right: 5%;
+	}
+	&__close {
+		color: #A8A7A8;
+		font-size: 2rem;
+		padding-bottom: 40px;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	&__cast-list {
+		width: 100%;
+	}
+	&__cast-member {
+		display: inline-block;
+	}
+}

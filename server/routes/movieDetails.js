@@ -12,7 +12,7 @@ router.get('/movie', (req, res) => {
         pageCount = req.query.page;
     }
     request({
-        uri: `https://api.themoviedb.org/3/movie/${req.query.movieId}?api_key=${apiKey}d&language=en-US&page=${pageCount}`
+        uri: `https://api.themoviedb.org/3/movie/${req.query.movieId}?api_key=${apiKey}&language=en-US&append_to_response=credits`
     }).pipe(res);
 });
 

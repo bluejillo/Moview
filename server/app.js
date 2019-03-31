@@ -6,6 +6,7 @@ const moviesRoute = require('./routes/movies');
 const moviesSearchRoute = require('./routes/searchMovies');
 const movieDetailsRoute = require('./routes/movieDetails');
 const movieGenreRoute = require('./routes/movieGenre');
+const movieSearchGenreRoute = require('./routes/movieByGenre');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(moviesRoute);
 app.use(moviesSearchRoute);
 app.use(movieDetailsRoute);
 app.use(movieGenreRoute);
+app.use(movieSearchGenreRoute);
 
 // --- Server ---
 const PORT = 4000;

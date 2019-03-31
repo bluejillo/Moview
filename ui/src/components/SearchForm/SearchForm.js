@@ -1,30 +1,51 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Form, Button, Row, Col } from '../../assets/bootstrapImports';
 import axios from 'axios';
 
 import './SearchForm.scss';
 
-class SearchForm extends Component {
-	state = {
-		genres: []
-	}
-
-	componentDidMount() {
-		axios.get('http://localhost:4000/genre')
-			.then(res => {
-				const genres = res.data.genres;
-				this.setState({genres: genres});
-			})
-	}
-
-	render() {
-		let genreList = null;
-		genreList = this.state.genres.map(genre => {
-			return <p key={genre.id}>{genre.name}</p>
-		})
-		return (<div className="search-form">
-			{genreList}
-		</div>);
-	}
+const SearchForm = (props) => {
+	const genres = props.genreList.map(genre => 
+			<option value={genre.id} key={genre.id}>{genre.name}</option>
+		)
+	return (
+		<Form className="search-form" id='search-form' onSubmit={props.formHandler} >
+			<Row>
+				<Col xs='auto'>
+					<Button type='submit' className='search-form__submit'>
+						<i className="material-icons">search</i>
+					</Button>
+				</Col>
+				<Col xs='auto'>
+					<Form.Group>
+						<Form.Control type='text' placeholder='Search' 
+						id='movie-search' 
+						className='search-form__search-box'
+						onChange={props.searchChange}
+						value={props.query}/>
+					</Form.Group>
+				</Col>
+			</Row>
+			{ props.clearFlag && 
+				<Row>
+					<Col>
+						<Button onClick={props.clear}>Cancel</Button>
+					</Col>
+				</Row>
+			}
+			<Row>
+				<Col>
+					<Form.Group>
+						<Form.Label>Search by genre:</Form.Label>
+						<Form.Control as='select' onChange={props.genreChange}>
+						<option>...</option>
+							{genres}
+						</Form.Control>
+					</Form.Group>
+				</Col>
+			</Row>
+		</Form>
+	);
 }
 
 export default SearchForm;

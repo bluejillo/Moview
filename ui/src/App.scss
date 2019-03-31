@@ -9,9 +9,14 @@
 */
 
 .App {
-  background-color: #363636;
-  height: 100vw;
-  padding-top: 5%;
+
+  &__hero {
+  	font-family: 'Poiret One', sans-serif;
+  	text-align: center;
+  	font-size: 10rem;
+  	color: #A8A7A8;
+  	padding: 5% 0;
+  }
 }
 
 
