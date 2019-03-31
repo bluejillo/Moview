@@ -12,5 +12,3 @@ router.get('/genre', (req, res) => {
 });
 
 module.exports = router;
-
-//poster https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg

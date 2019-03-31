@@ -1,0 +1,33 @@
+.movie {
+	display: inline-block;
+	height: 400px;
+	width: 250px;
+	margin: 20px 30px;
+
+	&__poster {
+		width: auto;
+		height: 300px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&__title {
+		font-weight: bold;
+		font-size: 1.5rem;
+		margin-top: 10px;
+		text-align: center;
+	}
+
+	&__rating {
+		text-align: center;
+	}
+
+	&:hover {
+		cursor: pointer;
+
+		.movie__title {
+			color: #CC527A;
+		}
+	}
+}

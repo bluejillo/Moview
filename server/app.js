@@ -23,7 +23,7 @@ app.use(movieDetailsRoute);
 app.use(movieGenreRoute);
 
 // --- Server ---
-const PORT = 3000;
-app.listen(PORT, () => {
+const PORT = 4000;
+module.exports = app.listen(PORT, () => {
 	console.log(`listening on ${PORT}`);
 });
