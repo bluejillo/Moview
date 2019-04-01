@@ -77,21 +77,23 @@ class MovieList extends Component {
 
 	searchChangeHandler = (e) => {
 		const query = e.target.value;
-		const clearFlag = this.state.showClear;
+		const clearFlag = true;
 		let { searchQuery } = this.state;
 		searchQuery = query;
-		this.setState({searchQuery: searchQuery, showClear: !clearFlag});
+		this.setState({searchQuery: searchQuery, showClear: clearFlag});
 
 	}
 
 	genreFilterChangeHandler = (e) => {
-		console.log(e.target.value);
-		const clearFlag = this.state.showClear;
-		axios.get(`http://localhost:4000/bygenre?genreId=${e.target.value}`)
-		.then(res => {
-			const movies = res.data.results;
-			this.setState({movies: movies, showClear: !clearFlag});
-		});
+		if(e.target.value != '...') {
+			const clearFlag = this.state.showClear;
+			axios.get(`http://localhost:4000/bygenre?genreId=${e.target.value}`)
+			.then(res => {
+				const movies = res.data.results;
+				this.setState({movies: movies, showClear: !clearFlag});
+			});
+		}
+		
 	}
 
 	render() {
@@ -121,23 +123,28 @@ class MovieList extends Component {
 			
 		}
 		return (
-			<Container className='movie-list'>
-				<Row>
-					<Col className='movie-list__movies-col'>
-						{singleMovie}
-						<div>{movieList}</div>
-					</Col>
-					<Col xs={2} className='movie-list__search-form-container'>
-						<SearchForm formHandler={this.formSubmitHandler.bind(this)} 
-						searchChange={this.searchChangeHandler.bind(this)} 
-						genreList={this.state.genres}
-						clear={this.formClearHandler}
-						clearFlag={this.state.showClear}
-						query={this.state.searchQuery}
-						genreChange={this.genreFilterChangeHandler.bind(this)}/>
-					</Col>
-				</Row>
-			</Container>
+			<Row className='movie-list'>
+				<Col>
+					<Row>
+						<Col className='movie-list__search-form-container'>
+							<SearchForm formHandler={this.formSubmitHandler.bind(this)} 
+							searchChange={this.searchChangeHandler.bind(this)} 
+							genreList={this.state.genres}
+							clear={this.formClearHandler}
+							clearFlag={this.state.showClear}
+							query={this.state.searchQuery}
+							genreChange={this.genreFilterChangeHandler.bind(this)}/>
+						</Col>
+					</Row>
+					<Row>
+						<Col className='movie-list__movies-col'>
+							{singleMovie}
+							<div>{movieList}</div>
+						</Col>
+						
+					</Row>
+				</Col>
+			</Row>
 		);
 	}
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Row, Col } from './assets/bootstrapImports';
 import MovieList from './components/MovieList/MovieList';
+import Footer from './components/Footer/Footer';
 import './App.scss';
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
           </Col>
         </Row>
         <MovieList />
+        <Footer />
       </div>
     );
   }
