@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from '../../assets/bootstrapImports';
+import { Row, Col } from '../../assets/bootstrapImports';
 import Movie from '../Movie/Movie';
 import SearchForm from '../SearchForm/SearchForm';
 import MovieDetail from '../MovieDetail/MovieDetail';
@@ -139,9 +139,8 @@ class MovieList extends Component {
 					<Row>
 						<Col className='movie-list__movies-col'>
 							{singleMovie}
-							<div>{movieList}</div>
+							{movieList}
 						</Col>
-						
 					</Row>
 				</Col>
 			</Row>

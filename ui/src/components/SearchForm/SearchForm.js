@@ -37,17 +37,16 @@ const SearchForm = (props) => {
 						<Col></Col>
 						<Col> 
 							<Form.Group as={Row}>
-										<Form.Label column xs={6} md={4} className='search-form__genre-label'>Search by genre:</Form.Label>
-									<Col xs={6} md={8}>
-										<Form.Control as='select' onChange={props.genreChange} className='search-form__genre-list'>
-											<option>...</option>
-												{genres}
-										</Form.Control>
-									</Col>
+								<Form.Label column xs={6} md={4} className='search-form__genre-label'>Search by genre:</Form.Label>
+								<Col xs={6} md={8}>
+									<Form.Control as='select' onChange={props.genreChange} className='search-form__genre-list'>
+										<option>...</option>
+											{genres}
+									</Form.Control>
+								</Col>
 							</Form.Group>
 						</Col>
 					</Row>
-					
 				</Col>
 			</Row>
 		</Form>

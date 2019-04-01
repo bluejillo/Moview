@@ -23,10 +23,10 @@ const MovieDetail = (props) => {
 				</Col>
 				<Col md={7} lg={7} sm={12} xs={12} className='movie-details__info'>
 					<h1>{props.title}</h1>
-					<p>Rating: {props.rating}</p>
-					<p>Release Date: {props.releaseDate}</p>
+					<p><strong>Rating:</strong> {props.rating}</p>
+					<p><strong>Release Date:</strong> {props.releaseDate}</p>
 					<p>{props.description}</p>
-					<p>Cast:</p>
+					<p><strong>Cast:</strong></p>
 					<Row className='movie-details__cast-list'>
 						{castMembers}
 					</Row>
