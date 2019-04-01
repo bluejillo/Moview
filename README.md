@@ -28,6 +28,6 @@ Open a terminal in the server root directory (Moview/server) and run: ```npm run
 ## Starting the UI
 
 The Moview UI was created using React.<br>
-Open a terminal in the ui (Moview/ui) root directory and install the application using ```npm install``` (if you have not already done so).<br>
+Open a second terminal in the ui (Moview/ui) root directory and install the application using ```npm install``` (if you have not already done so).<br>
 To start the UI, run: ```npm start```
 
