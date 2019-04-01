@@ -1,7 +1,7 @@
 # Moview
 
 View and search movies in the MovieDB.<br>
-Add your MovieDB API key to a file called apikey.js in the Moview/server/assets directory. Example apikey.js: ```module.exports='<moviedb api key>';```
+Add your [MovieDB API key](https://developers.themoviedb.org/3/getting-started/introduction) to a file called apikey.js in the Moview/server/assets directory. Example apikey.js: ```module.exports='<moviedb api key>';```
 
 ## Starting API Server
 
