@@ -31,3 +31,11 @@ The Moview UI was created using React.<br>
 Open a second terminal in the ui (Moview/ui) root directory and install the application using ```npm install``` (if you have not already done so).<br>
 To start the UI, run: ```npm start```
 
+## To-dos
+Add pagination<br>
+Fix genre filter dropdown bug<br>
+Add more unit testing cases<br>
+Assess and refactor any part of the UI that could be more grainular<br>
+Add more error handling to UI and API<br>
+Add movie suggestions to single movie view<br>
+Link to cast member's profile<br>
