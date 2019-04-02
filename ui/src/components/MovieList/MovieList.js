@@ -90,7 +90,12 @@ class MovieList extends Component {
 			axios.get(`http://localhost:4000/bygenre?genreId=${e.target.value}`)
 			.then(res => {
 				const movies = res.data.results;
-				this.setState({movies: movies, showClear: !clearFlag});
+				const singleMovieToggle = this.state.singleMovieToggle;
+				if(singleMovieToggle === true) {
+					this.setState({movies: movies, showClear: !clearFlag, singleMovieToggle: !singleMovieToggle});
+				} else {
+					this.setState({movies: movies, showClear: !clearFlag});
+				}
 			});
 		}
 		
