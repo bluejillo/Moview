@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Row, Col } from './assets/bootstrapImports';
-import MovieList from './components/MovieList/MovieList';
+import MovieDashboard from './components/MovieDashboard/MovieDashboard';
 import Footer from './components/Footer/Footer';
 import './App.scss';
 
@@ -13,7 +13,7 @@ class App extends Component {
             <h1 className='App__hero'>MOVIEW</h1>
           </Col>
         </Row>
-        <MovieList />
+        <MovieDashboard />
         <Footer />
       </div>
     );

@@ -33,7 +33,6 @@ To start the UI, run: ```npm start```
 
 ## To-dos
 Add pagination<br>
-Fix genre filter dropdown bug<br>
 Add more unit testing cases<br>
 Assess and refactor any part of the UI that could be more grainular<br>
 Add more error handling to UI and API<br>

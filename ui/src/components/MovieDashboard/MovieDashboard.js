@@ -5,7 +5,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import MovieDetail from '../MovieDetail/MovieDetail';
 import axios from 'axios';
 
-import './MovieList.scss';
+import './MovieDashboard.scss';
 
 
 class MovieList extends Component {
@@ -128,10 +128,10 @@ class MovieList extends Component {
 			
 		}
 		return (
-			<Row className='movie-list'>
+			<Row className='movie-dashboard'>
 				<Col>
 					<Row>
-						<Col className='movie-list__search-form-container'>
+						<Col className='movie-dashboard__search-form-container'>
 							<SearchForm formHandler={this.formSubmitHandler.bind(this)} 
 							searchChange={this.searchChangeHandler.bind(this)} 
 							genreList={this.state.genres}
@@ -142,7 +142,7 @@ class MovieList extends Component {
 						</Col>
 					</Row>
 					<Row>
-						<Col className='movie-list__movies-col'>
+						<Col className='movie-dashboard__movies-col'>
 							{singleMovie}
 							{movieList}
 						</Col>
