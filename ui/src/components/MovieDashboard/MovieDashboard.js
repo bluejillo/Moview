@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from '../../assets/bootstrapImports';
+import { getPopular, getGenres } from '../../assets/api-calls';
 import Movie from '../Movie/Movie';
 import SearchForm from '../SearchForm/SearchForm';
 import MovieDetail from '../MovieDetail/MovieDetail';
@@ -20,16 +21,12 @@ class MovieList extends Component {
 	}
 
 	componentDidMount() {
-		axios.get('http://localhost:4000/')
-			.then(res => {
-				const movies = res.data.results;
-				this.setState({movies: movies});
-			});
-		axios.get('http://localhost:4000/genre')
-			.then(res => {
-				const genres = res.data.genres;
-				this.setState({genres: genres});
-			});
+		Promise.all([getPopular(), getGenres()])
+		.then(values => {
+			const movies = [...values[0].data.results];
+			const genres = [...values[1].data.genres];
+			this.setState({movies: movies, genres: genres});
+		});
 	}
 
 	singleMovieDetailHandler = (id) => {
