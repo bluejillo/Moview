@@ -156,7 +156,7 @@ class MovieList extends Component {
 						<Col className='movie-dashboard__movies-col'>
 							{singleMovie}
 							{movieList}
-							{/* <Pagination totalPages={this.state.pages} pageClick={this.paginationClickHandler}/> */}
+							<Pagination totalPages={this.state.pages} pageClick={this.paginationClickHandler}/>
 						</Col>
 					</Row>
 				</Col>
