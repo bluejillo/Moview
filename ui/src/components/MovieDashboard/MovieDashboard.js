@@ -3,6 +3,7 @@ import { Row, Col } from '../../assets/bootstrapImports';
 import Movie from '../Movie/Movie';
 import SearchForm from '../SearchForm/SearchForm';
 import MovieDetail from '../MovieDetail/MovieDetail';
+import Pagination from '../Pagination/Pagination';
 import axios from 'axios';
 
 import './MovieDashboard.scss';
@@ -17,13 +18,15 @@ class MovieList extends Component {
 		singleMovie: {},
 		resultsCount: '',
 		showClear: false,
+		pages: null,
 	}
 
 	componentDidMount() {
 		axios.get('http://localhost:4000/')
 			.then(res => {
 				const movies = res.data.results;
-				this.setState({movies: movies});
+				const pages = res.data.total_pages
+				this.setState({movies: movies, pages: pages});
 			});
 		axios.get('http://localhost:4000/genre')
 			.then(res => {
@@ -32,17 +35,25 @@ class MovieList extends Component {
 			});
 	}
 
+	paginationClickHandler = (page) => {
+		console.log('page clciked');
+		axios.get(`http://localhost:4000/?page=${page}`)
+			.then(res => {
+				const movies = res.data.results;
+				this.setState({movies: movies});
+			});
+	}
+
 	singleMovieDetailHandler = (id) => {
 		const toggleFlag = !this.state.singleMovieToggle;
 		let movie = null;
-		let cast = null;
+		let pages = null;
 		if(!id){
 			this.setState({singleMovieToggle: toggleFlag});
 		} else {
 			axios.get(`http://localhost:4000/movie?movieId=${id}`)
 				.then(res => {
-					movie = res.data;
-					console.log(movie);
+					movie = res.data;;
 					this.setState({singleMovieToggle: toggleFlag, singleMovie: movie});
 				});
 		}
@@ -145,6 +156,7 @@ class MovieList extends Component {
 						<Col className='movie-dashboard__movies-col'>
 							{singleMovie}
 							{movieList}
+							{/* <Pagination totalPages={this.state.pages} pageClick={this.paginationClickHandler}/> */}
 						</Col>
 					</Row>
 				</Col>
